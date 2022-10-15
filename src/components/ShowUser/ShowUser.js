@@ -1,5 +1,4 @@
 import { Space, Table, Tag } from 'antd';
-import {Information} from "../information/Information"
 import React from 'react';
 const columns = [
   {
@@ -32,10 +31,9 @@ const columns = [
     dataIndex: 'city',
     key: 'city',
   },
-  
+
 ];
 const data = [
-...Information
 ];
 const ShowUser = () => <Table columns={columns} dataSource={data} />;
 export default ShowUser;

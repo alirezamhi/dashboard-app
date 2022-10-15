@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input, InputNumber, DatePicker, Button } from 'antd';
 
 export function ModalForm() {
+    const [inputValue, setInputValue] = useState({
+        name: "",
+        family: "",
+        age: 0,
+        size: 0,
+        birthday: 0,
+        city: "",
+    })
+    function handleChange(obj) {
+        setInputValue((prev) => {
+            return { ...prev, ...obj }
+        })
+    }
+    console.log(inputValue);
     return (
         <>
             <Form name="basic"
@@ -21,7 +35,7 @@ export function ModalForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input onChange={e => handleChange({ name: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="نام خانوادگی :"
@@ -33,7 +47,7 @@ export function ModalForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input onChange={e => handleChange({ family: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="سن :"
@@ -44,7 +58,7 @@ export function ModalForm() {
                             message: 'سن خود را وارد نمایید!',
                         },
                     ]}>
-                    <InputNumber />
+                    <InputNumber onChange={e => handleChange({ age: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="قد :"
@@ -55,7 +69,7 @@ export function ModalForm() {
                             message: 'قد خود را وارد نمایید',
                         },
                     ]}>
-                    <InputNumber />
+                    <InputNumber onChange={e => handleChange({ size: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="تاریخ تولد :"
@@ -66,7 +80,7 @@ export function ModalForm() {
                             message: 'تاریخ تولد خود را وارد نمایید!',
                         },
                     ]}>
-                    <DatePicker />
+                    <DatePicker onChange={e => handleChange({ birthday: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="محل سکونت  :"
@@ -78,11 +92,10 @@ export function ModalForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input onChange={e => handleChange({ city: e.target.value })} />
                 </Form.Item>
                 <Button type="primary" htmlType="button">اضافه کردن</Button>
             </Form>
         </>
-
     );
 }
