@@ -1,11 +1,13 @@
 import './App.css';
-import { ModalForm } from "./Components/ModalForm"
+import Header from "./Components/header/Header"
+
 
 function App() {
   return (
-    <>
-
-    </>
+      <div>
+        <Header></Header>
+        <hr />
+      </div>
   );
 }
 

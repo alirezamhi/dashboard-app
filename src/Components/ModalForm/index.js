@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Form, Input, InputNumber, DatePicker } from 'antd';
+import { Form, Input, InputNumber, DatePicker, Button } from 'antd';
 
 export function ModalForm() {
     return (
@@ -80,6 +80,7 @@ export function ModalForm() {
                 >
                     <Input />
                 </Form.Item>
+                <Button type="primary" htmlType="button">اضافه کردن</Button>
             </Form>
         </>
 
