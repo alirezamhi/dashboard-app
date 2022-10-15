@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import { ModalForm } from "./Components/ModalForm"
 
 function App() {
   return (
-    <p>mahdie</p>
+    <>
+
+    </>
   );
 }
 
