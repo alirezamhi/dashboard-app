@@ -16,6 +16,7 @@ export function ModalForm() {
             return { ...prev, ...obj }
         })
     }
+
     console.log(inputValue);
     return (
         <>
@@ -58,7 +59,7 @@ export function ModalForm() {
                             message: 'سن خود را وارد نمایید!',
                         },
                     ]}>
-                    <InputNumber onChange={e => handleChange({ age: e.target.value })} />
+                    <InputNumber onChange={e => handleChange({ age: e })} />
                 </Form.Item>
                 <Form.Item
                     label="قد :"
@@ -69,7 +70,7 @@ export function ModalForm() {
                             message: 'قد خود را وارد نمایید',
                         },
                     ]}>
-                    <InputNumber onChange={e => handleChange({ size: e.target.value })} />
+                    <InputNumber onChange={e => handleChange({ size: e })} />
                 </Form.Item>
                 <Form.Item
                     label="تاریخ تولد :"
@@ -80,8 +81,7 @@ export function ModalForm() {
                             message: 'تاریخ تولد خود را وارد نمایید!',
                         },
                     ]}>
-                    <DatePicker onChange={e => handleChange({ birthday: e.target.value })} />
-                </Form.Item>
+                    <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />                </Form.Item>
                 <Form.Item
                     label="محل سکونت  :"
                     name="محل سکونت :"
