@@ -2,7 +2,7 @@ import React from "react";
 import Style from "./ShowUser.module.css"
 const ShowUser = () => {
   return (
-    <div className="bg-light">
+    <div className={Style.border_top}>
       <table className="table table-striped table-hover">
         <thead>
           <tr className={Style.text_align}>
@@ -36,3 +36,45 @@ const ShowUser = () => {
   )
 }
 export default ShowUser;
+
+// import { Space, Table, Tag } from 'antd';
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// const columns = [
+//   {
+//     title: 'نام',
+//     dataIndex: 'name',
+//     key: 'name',
+//   },
+//   {
+//     title: 'نام خانوادگی',
+//     dataIndex: 'family',
+//     key: 'family',
+//   },
+//   {
+//     title: 'سن',
+//     dataIndex: 'age',
+//     key: 'age',
+//   },
+//   {
+//     title: 'قد',
+//     dataIndex: 'size',
+//     key: 'size',
+//   },
+//   {
+//     title: 'تارخ تولد',
+//     dataIndex: 'birthday',
+//     key: 'birthday',
+//   },
+//   {
+//     title: 'محل زندگی',
+//     dataIndex: 'city',
+//     key: 'city',
+//   },
+
+// ];
+// function ShowUser() {
+//   const usersData = useSelector((state) => state.user);
+//   return <Table columns={columns} dataSource={usersData} />
+// };
+// export default ShowUser;
