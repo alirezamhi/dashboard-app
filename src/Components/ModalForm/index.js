@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input, InputNumber, DatePicker, Button } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import * as userActions from "../../Store/user/user.action";
 
 export function ModalForm() {
     const [inputValue, setInputValue] = useState({
@@ -16,8 +18,7 @@ export function ModalForm() {
             return { ...prev, ...obj }
         })
     }
-
-    console.log(inputValue);
+    const dispatch = useDispatch();
     return (
         <>
             <Form name="basic"
@@ -95,7 +96,7 @@ export function ModalForm() {
                 >
                     <Input onChange={e => handleChange({ city: e.target.value })} />
                 </Form.Item>
-                <Button type="primary" htmlType="button">اضافه کردن</Button>
+                <Button type="primary" htmlType="button" onClick={() => dispatch(userActions.add(inputValue))}>اضافه کردن</Button>
             </Form>
         </>
     );
