@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './Components/header/Header';
 import ShowUser from './Components/ShowUser/ShowUser';
 
