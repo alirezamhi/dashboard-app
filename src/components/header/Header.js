@@ -6,8 +6,8 @@ import Style from './Header.module.css'
 const header = () => {
     return (
         <div className={Style.header_flex}>
-            <HeaderButton></HeaderButton>
             <HeaderSearch></HeaderSearch>
+            <HeaderButton></HeaderButton>
         </div>
     );
 };

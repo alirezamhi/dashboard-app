@@ -81,7 +81,9 @@ export function ModalForm() {
                             message: 'تاریخ تولد خود را وارد نمایید!',
                         },
                     ]}>
-                    <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />                </Form.Item>
+                    <DatePicker 
+                    // defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} 
+                    />                </Form.Item>
                 <Form.Item
                     label="محل سکونت  :"
                     name="محل سکونت :"
