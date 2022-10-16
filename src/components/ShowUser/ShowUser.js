@@ -2,8 +2,7 @@ import { Space, Table, Tag } from 'antd';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-// const userValues = useSelector((state) => state.user)
-// console.log(userValues);
+
 
 const columns = [
   {

@@ -14,15 +14,10 @@ const onSearch = (value) => console.log(value);
 
 const HeaderSearch = () => {
   return (
-    <div>
+    <div className="bg-light">
       <Space direction="vertical">
-        <Search
-          placeholder="جستجوی کاربر..."
-          onSearch={onSearch}
-          style={{
-            width: 200,
-          }}
-        />
+      <Search placeholder="input search text" onSearch={onSearch} enterButton />
+
       </Space>
     </div>
   );
