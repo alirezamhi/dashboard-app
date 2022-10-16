@@ -38,6 +38,8 @@ const columns = [
   },
 
 ];
-let data = [];
-const ShowUser = () => <Table columns={columns} dataSource={data} />;
+function ShowUser() {
+  const usersData = useSelector((state) => state.user);
+  return <Table columns={columns} dataSource={usersData} />
+};
 export default ShowUser;
