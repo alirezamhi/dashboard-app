@@ -14,10 +14,9 @@ const onSearch = (value) => console.log(value);
 
 const HeaderSearch = () => {
   return (
-    <div className="bg-light">
+    <div >
       <Space direction="vertical">
       <Search placeholder="input search text" onSearch={onSearch} enterButton />
-
       </Space>
     </div>
   );

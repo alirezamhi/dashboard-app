@@ -2,7 +2,7 @@ import React from "react";
 import Style from "./ShowUser.module.css"
 const ShowUser = () => {
   return (
-    <div>
+    <div className="bg-light">
       <table className="table table-striped table-hover">
         <thead>
           <tr className={Style.text_align}>
@@ -19,8 +19,8 @@ const ShowUser = () => {
           <tr className={Style.text_align}>
             <td>
               <div class="btn-group">
-                <button type="button" class="btn btn-danger btn-sm">حذف</button>
-                <button type="button" class="btn btn-warning btn-sm">ویرایش</button>
+                <button type="button" className="btn btn-danger btn-sm">حذف</button>
+                <button type="button" className="btn btn-warning btn-sm">ویرایش</button>
               </div>
             </td>
             <td>تهران</td>
