@@ -1,16 +1,17 @@
 import {Table} from 'antd';
 import React from 'react';
 import { useSelector , useDispatch} from 'react-redux';
-import { deleteUser } from '../../Store/user/user.action';
-const dispatch = useDispatch()
+import { deleteUser ,  edit} from '../../Store/user/user.action';
+function ShowUser() {
+  const dispatch = useDispatch()
 const columns = [
   {
     title: 'عملیات',
     key: 'action',
     render: (_, record) => (
       <div className='btn-group'>
-        <button className='btn btn-danger btn-sm' onChange={()=>dispatch(deleteUser())}>ویرایش</button>
-        <button className='btn btn-warning btn-sm'>حذف</button>
+        <button className='btn btn-danger btn-sm' >ویرایش</button>
+        <button className='btn btn-warning btn-sm' onChange={()=>dispatch(deleteUser(record.id))}>حذف</button>
       </div>
     ),
   },
@@ -46,9 +47,7 @@ const columns = [
   },
   
 ];
-function ShowUser() {
   const usersData = useSelector((state) => state.user)
-  const dispatch = useDispatch()
   return <Table columns={columns} dataSource={usersData} />
 };
 export default ShowUser;
