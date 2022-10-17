@@ -17,6 +17,6 @@ export function deleteUser(value) {
 export function edit(value) {
     return {
         type: EDIT,
-        payload: { value },
+        payload: value,
     }
 }

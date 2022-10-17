@@ -19,7 +19,6 @@ export function ModalForm() {
             return { ...prev, ...obj }
         })
     }
-    console.log(users);
     const dispatch = useDispatch();
     return (
         <>
