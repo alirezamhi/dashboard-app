@@ -11,7 +11,7 @@ const columns = [
     render: (_, record) => (
       <div className='btn-group'>
         <button className='btn btn-danger btn-sm' >ویرایش</button>
-        <button className='btn btn-warning btn-sm' onChange={()=>dispatch(deleteUser(record.id))}>حذف</button>
+        <button className='btn btn-warning btn-sm' onClick={()=>dispatch(deleteUser(record.id))}>حذف</button>
       </div>
     ),
   },
@@ -47,7 +47,8 @@ const columns = [
   },
   
 ];
-  const usersData = useSelector((state) => state.user)
+  const usersData = useSelector((state) => state.user.users);
+  console.log(usersData);
   return <Table columns={columns} dataSource={usersData} />
 };
 export default ShowUser;

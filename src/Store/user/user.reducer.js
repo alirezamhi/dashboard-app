@@ -5,9 +5,9 @@ import { users } from "./user.state";
 export function userReducer(state = users, action) {
     switch (action.type) {
         case ADD:
-            return [...state, { ...action.payload , id : state.length+1}];
+            return {...state,users:[...state.users,{...action.payload,id:state.users.length-1}]}
         case DELETE:
-            return state.filter(item=>item!==action.payload)    
+            return state.users.filter(item=>item.id!==action.payload)  
         default:
             return state;
     }
