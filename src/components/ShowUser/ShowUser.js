@@ -1,45 +1,53 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Style from "./ShowUser.module.css"
-const ShowUser = () => {
+import {Table} from 'antd';
+import React from 'react';
+import { useSelector , useDispatch} from 'react-redux';
+import { deleteUser ,  edit} from '../../Store/user/user.action';
+function ShowUser() {
+  const dispatch = useDispatch()
+const columns = [
+  {
+    title: 'عملیات',
+    key: 'action',
+    render: (_, record) => (
+      <div className='btn-group'>
+        <button className='btn btn-danger btn-sm' >ویرایش</button>
+        <button className='btn btn-warning btn-sm' onChange={()=>dispatch(deleteUser(record.id))}>حذف</button>
+      </div>
+    ),
+  },
+  {
+    title: 'محل زندگی',
+    dataIndex: 'city',
+    key: 'city',
+  },
+  {
+    title: 'تارخ تولد',
+    dataIndex: 'birthday',
+    key: 'birthday',
+  },
+  {
+    title: 'قد',
+    dataIndex: 'size',
+    key: 'size',
+  },
+  {
+    title: 'سن',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'نام خانوادگی',
+    dataIndex: 'family',
+    key: 'family',
+  },
+  {
+    title: 'نام',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  
+];
   const usersData = useSelector((state) => state.user)
-  return (
-    <div className="bg-light">
-      <table className="table table-striped table-hover">
-        <thead>
-          <tr className={Style.text_align}>
-            <th scope="col">عملیات</th>
-            <th scope="col">محل زندگی</th>
-            <th scope="col">تاریخ تولد</th>
-            <th scope="col">قد</th>
-            <th scope="col">سن</th>
-            <th scope="col">نام خانوادگی</th>
-            <th scope="col">نام</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usersData.map((value, index) => {
-            return <>
-              <tr className={Style.text_align}>
-                <td>
-                  <div class="btn-group">
-                    <button type="button" className="btn btn-danger btn-sm">حذف</button>
-                    <button type="button" className="btn btn-warning btn-sm">ویرایش</button>
-                  </div>
-                </td>
-                <td>{value.city}</td>
-                <td>{value.birthday}</td>
-                <td>{value.size}</td>
-                <td>{value.age}</td>
-                <td>{value.family}</td>
-                <td>{value.name}</td>
-              </tr>
-            </>
-          })
-          }
-        </tbody>
-      </table>
-    </div>
-  )
-}
+  return <Table columns={columns} dataSource={usersData} />
+};
 export default ShowUser;

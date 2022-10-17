@@ -1,3 +1,7 @@
 .text_align{
     text-align: center;
 }
+.border_top{
+    border-top: 2px solid gray;
+    border: 20px;
+}

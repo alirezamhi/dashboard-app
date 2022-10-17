@@ -29,3 +29,9 @@ code {
 .ant-pagination{
   display: none !important;
 }
+.ant-table-tbody{
+  text-align: center;
+}
+.ant-table-cell{
+  text-align: center !important;
+}
