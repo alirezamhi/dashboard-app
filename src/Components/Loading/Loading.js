@@ -9,7 +9,7 @@ const Loading = () => {
 				<circle cx="50" cy="50" r="46" />
 			</svg>
 		</div>
-		<h1 className={Style.title}>loading...</h1>
+		<h1 className={Style.title}>چند لحظه منتظر بمانید</h1>
 	</div>
     )
 }
