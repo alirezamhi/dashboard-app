@@ -1,26 +1,21 @@
-<<<<<<< HEAD
-import Header from './components/header/Header';
-import ShowUser from './components/ShowUser/ShowUser';
-=======
 import { useEffect, useState } from 'react';
-import Header from './Components/header/Header';
-import Loading from './Components/Loading/Loading';
-import ShowUser from './Components/ShowUser/ShowUser';
->>>>>>> 8fc980228c17cf3fa4d093190aee5d5e0ef5bc8e
+import Header from './components/header/Header';
+import Loading from './components/Loading/Loading';
+import ShowUser from './components/ShowUser/ShowUser';
 
 function App() {
-  const [istrue,setIsTrue]=useState(false)
-  useEffect(()=>{
+  const [istrue, setIsTrue] = useState(false)
+  useEffect(() => {
     setTimeout(() => {
       setIsTrue(true)
     }, 3000);
-  },[])
+  }, [])
   return (
     <div>
       <Header></Header>
       <hr />
-      {istrue?<ShowUser/>:<Loading/>}
-      
+      {istrue ? <ShowUser /> : <Loading />}
+
     </div>
   );
 }

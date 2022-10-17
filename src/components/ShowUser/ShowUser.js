@@ -6,7 +6,7 @@ function ShowUser() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
   const editData = useSelector((state) => state.user.editValues);
-  console.log(editData);
+  console.log(usersData);
 
   const columns = [
     {
@@ -23,34 +23,38 @@ function ShowUser() {
       title: 'محل زندگی',
       dataIndex: 'city',
       key: 'city',
+      render: (item) => editData?.city === item ? <input defaultValue={editData.city} /> : item,
     },
     {
       title: 'تارخ تولد',
       dataIndex: 'birthday',
       key: 'birthday',
+      render: (item) => editData?.birthday === item ? <input defaultValue={editData.birthday} /> : item,
     },
     {
       title: 'قد',
       dataIndex: 'size',
       key: 'size',
+      render: (item) => editData?.size === item ? <input defaultValue={editData.size} /> : item,
     },
     {
       title: 'سن',
       dataIndex: 'age',
       key: 'age',
+      render: (item) => editData?.age === item ? <input defaultValue={editData.age} /> : item,
     },
     {
       title: 'نام خانوادگی',
       dataIndex: 'family',
       key: 'family',
+      render: (item) => editData?.family === item ? <input defaultValue={editData.family} /> : item,
     },
     {
       title: 'نام',
       dataIndex: 'name',
       key: 'name',
-      render: (item) => editData === item ? <input /> : item,
+      render: (item) => editData?.name === item ? <input defaultValue={editData.name} /> : item,
     },
-
   ];
 
   return <Table columns={columns} dataSource={usersData} rowKey={(item) => item.id} />
