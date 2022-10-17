@@ -3,14 +3,14 @@ import { ADD, DELETE, EDIT } from "./user.constant";
 export function add(value) {
     return {
         type: ADD,
-        payload : value,
+        payload: value,
     }
 }
 
 export function deleteUser(value) {
     return {
         type: DELETE,
-        payload: { value },
+        payload: value,
     }
 }
 
