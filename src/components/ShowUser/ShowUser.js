@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Style from "./ShowUser.module.css"
 const ShowUser = () => {
+  const usersData = useSelector((state) => state.user)
   return (
     <div className="bg-light">
       <table className="table table-striped table-hover">
@@ -16,20 +18,25 @@ const ShowUser = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className={Style.text_align}>
-            <td>
-              <div class="btn-group">
-                <button type="button" className="btn btn-danger btn-sm">حذف</button>
-                <button type="button" className="btn btn-warning btn-sm">ویرایش</button>
-              </div>
-            </td>
-            <td>تهران</td>
-            <td>1379</td>
-            <td>170</td>
-            <td>23</td>
-            <td>محمدخانی</td>
-            <td>علیرضا</td>
-          </tr>
+          {usersData.map((value, index) => {
+            return <>
+              <tr className={Style.text_align}>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" className="btn btn-danger btn-sm">حذف</button>
+                    <button type="button" className="btn btn-warning btn-sm">ویرایش</button>
+                  </div>
+                </td>
+                <td>{value.city}</td>
+                <td>{value.birthday}</td>
+                <td>{value.size}</td>
+                <td>{value.age}</td>
+                <td>{value.family}</td>
+                <td>{value.name}</td>
+              </tr>
+            </>
+          })
+          }
         </tbody>
       </table>
     </div>

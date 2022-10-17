@@ -16,7 +16,7 @@ const HeaderSearch = () => {
   return (
     <div >
       <Space direction="vertical">
-      <Search placeholder="input search text" onSearch={onSearch} enterButton />
+        <Search placeholder="جستجوی کاربران" onSearch={onSearch} enterButton />
       </Space>
     </div>
   );

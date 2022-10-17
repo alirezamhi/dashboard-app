@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as userActions from "../../Store/user/user.action";
 
 export function ModalForm() {
+    const users = useSelector((state) => state.user);
     const [inputValue, setInputValue] = useState({
         name: "",
         family: "",
@@ -18,6 +19,7 @@ export function ModalForm() {
             return { ...prev, ...obj }
         })
     }
+    console.log(users);
     const dispatch = useDispatch();
     return (
         <>
