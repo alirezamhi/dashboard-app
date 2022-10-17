@@ -1,0 +1,60 @@
+.title {
+	display: flex;
+	justify-content: center;
+	color: #1890ff;
+	font-family: Poppins;
+	user-select: none;
+	/* text-shadow: 3px 3px black; */
+}
+
+.title_container {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.spinner {
+	display: flex;
+	justify-content: center;
+}
+
+svg {
+	width: 50%;
+	max-width: 10rem;
+	animation: rotate 3.6s linear infinite;
+}
+
+circle {
+	fill: none;
+	stroke: #1890ff;
+	stroke-width: 8px;
+	stroke-dasharray: 300;
+	animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+@keyframes outline {
+	0% {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dashoffset: 300;
+	}
+	100% {
+		stroke-dashoffset: 600;
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(-1turn);
+	}
+}
