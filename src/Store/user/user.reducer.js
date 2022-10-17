@@ -7,7 +7,7 @@ export function userReducer(state = users, action) {
         case ADD:
             return {...state,users:[...state.users,{...action.payload,id:state.users.length-1}]}
         case DELETE:
-            return state.users.filter(item=>item.id!==action.payload)  
+            return {...state,users:state.users.filter(item=>item.id!==action.payload)}
         default:
             return state;
     }

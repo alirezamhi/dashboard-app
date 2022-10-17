@@ -10,7 +10,7 @@ export function add(value) {
 export function deleteUser(value) {
     return {
         type: DELETE,
-        payload: { value },
+        payload: value 
     }
 }
 
