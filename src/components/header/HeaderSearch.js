@@ -14,10 +14,9 @@ const onSearch = (value) => console.log(value);
 
 const HeaderSearch = () => {
   return (
-    <div >
-      <Space direction="vertical">
-        <Search placeholder="جستجوی کاربران" onSearch={onSearch} enterButton />
-      </Space>
+    <div class="input-group w-25">
+      <button class="btn btn-primary" type="button" id="button-addon1"><i class="bi bi-search"></i></button>
+      <input className="form-control text-end" placeholder="جستجو کاربران"/>
     </div>
   );
 };
