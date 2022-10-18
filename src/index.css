@@ -35,3 +35,13 @@ code {
 .ant-table-cell{
   text-align: center !important;
 }
+body{ 
+  transition: all 0.2s ease-in;
+}
+[data-theme="dark"] {
+  color: #fff;
+  background-color: #282c34
+}
+[data-theme="light"] {
+  background-color: #f7f7f7;
+}

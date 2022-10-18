@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Form, Input, InputNumber, DatePicker, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import * as userActions from "../../Store/user/user.action";
+import Style from "./Modal.module.css"
 
 export function ModalForm() {
     const users = useSelector((state) => state.user);
@@ -21,7 +22,7 @@ export function ModalForm() {
     }
     const dispatch = useDispatch();
     return (
-        <>
+        <div className={Style.ModalForm}>
             <Form name="basic"
                 initialValues={{
                     remember: true,
@@ -38,7 +39,8 @@ export function ModalForm() {
                         },
                     ]}
                 >
-                    <Input onChange={e => handleChange({ name: e.target.value })} />
+                    <input type="text" className="form-control" placeholder="Username"/>
+                    {/* <Input onChange={e => handleChange({ name: e.target.value })} /> */}
                 </Form.Item>
                 <Form.Item
                     label="نام خانوادگی :"
@@ -99,6 +101,6 @@ export function ModalForm() {
                 </Form.Item>
                 <Button type="primary" htmlType="button" onClick={() => dispatch(userActions.add(inputValue))}>اضافه کردن</Button>
             </Form>
-        </>
+        </div>
     );
 }

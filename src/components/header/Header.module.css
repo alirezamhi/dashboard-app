@@ -9,3 +9,29 @@
   font-size: 15px !important;
   height: 43px;
 }
+.moon {
+  color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: #fff;
+  transition: all .2s ease-in-out;
+}
+.moon:hover{
+  background-color: blue;
+  color: #fff;
+}
+.sun{
+  color: yellow;
+  border: 2px solid yellow;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: #282c34;
+  transition: all .2s ease-in-out;
+}
+.sun:hover{
+  background-color: yellow;
+  color: #fff;
+}
