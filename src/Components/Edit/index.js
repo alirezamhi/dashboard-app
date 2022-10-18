@@ -9,7 +9,7 @@ export function Edit() {
         setEditValue((prev) => {
             return { ...prev, ...obj }
         })
-    }
+    }    
     
     return <>
         <input onChange={(e) => handleChange({ name: e.target.value })} value={editValue.name} />
