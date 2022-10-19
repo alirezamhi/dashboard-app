@@ -18,5 +18,6 @@ export function Edit() {
         <input onChange={(e) => handleChange({ size: e })} value={editValue.size} />
         <input onChange={(e) => handleChange((date, dateString) => handleChange({ birthday: dateString }))} value={editValue.birthday} />
         <input onChange={(e) => handleChange({ city: e.target.value })} value={editValue.city} />
+        
     </>
 }

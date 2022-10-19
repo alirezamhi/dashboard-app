@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Header from './Components/header/Header';
-import Loading from './Components/Loading/Loading';
-import ShowUser from './Components/ShowUser/ShowUser';
+import Header from './components/header/Header';
+import Loading from './components/Loading/Loading';
+import ShowUser from './components/ShowUser/ShowUser';
 
 function App() {
   const [istrue, setIsTrue] = useState(false)
@@ -15,7 +15,6 @@ function App() {
       <Header></Header>
       <hr />
       {istrue ? <ShowUser /> : <Loading />}
-
     </div>
   );
 }
