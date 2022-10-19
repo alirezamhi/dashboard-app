@@ -1,4 +1,4 @@
-import { ADD, DELETE, EDIT, SAVE } from "./user.constant";
+import { ADD, DELETE, EDIT, SAVE, SEARCH } from "./user.constant";
 import { users } from "./user.state";
 
 
@@ -11,12 +11,20 @@ export function userReducer(state = users, action) {
         case EDIT:
             return { ...state, editValues: action.payload }
         case SAVE:
-           {
-                const indexEdited=state.users.findIndex((item)=>item.id===action.payload.id);
-                const newUsers=[...state.users];
-                newUsers[indexEdited]=action.payload;
-               return {...state,users:newUsers,editValues:null}
-           }
+            {
+                const indexEdited = state.users.findIndex((item) => item.id === action.payload.id);
+                const newUsers = [...state.users];
+                newUsers[indexEdited] = action.payload;
+                return { ...state, users: newUsers, editValues: null }
+            }
+        case SEARCH:
+            {
+                if (action.payload.length === 0) {
+                    return { ...state, searchResult: state.users }
+                } else {
+                    return { ...state, searchResult: action.payload }
+                }
+            }
         default:
             return state;
     }

@@ -6,18 +6,15 @@ import { Button } from '../Button';
 function ShowUser() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
-  const editData = useSelector((state) => state.user.editValues);
-  const initial= { name: "", family: "", age:"", size:"", birthday: "", city: "" }
+  const initial = { name: "", family: "", age: "", size: "", birthday: "", city: "" }
   const [editValue, setEditValue] = useState(initial);
-  console.log(editValue);
   function handleChange(obj) {
     setEditValue((prev) => {
       return { ...prev, ...obj }
     })
   }
-  console.log(editValue);
   function handleEdit(record) {
-    const newEdit=usersData.find((item)=>item.id===record.id);
+    const newEdit = usersData.find((item) => item.id === record.id);
     dispatch(userActions.edit(newEdit));
     setEditValue(newEdit)
 
@@ -40,7 +37,7 @@ function ShowUser() {
             :
             <div className='btn-group'>
               <Button className='danger' onClick={() => dispatch(userActions.deleteUser(record.id))}>حذف</Button>
-              <Button className='warning' onClick={() =>handleEdit(record)}>ویرایش</Button>
+              <Button className='warning' onClick={() => handleEdit(record)}>ویرایش</Button>
             </div>
           }
         </>
@@ -51,7 +48,7 @@ function ShowUser() {
       dataIndex: 'city',
       key: 'city',
       render: (item, record) => {
-        return record.id === editValue?.id ? <input defaultValue={editValue.city} onChange={(e) =>handleChange({ city: e.target.value })} /> : item
+        return record.id === editValue?.id ? <input defaultValue={editValue.city} onChange={(e) => handleChange({ city: e.target.value })} /> : item
 
       }
     },

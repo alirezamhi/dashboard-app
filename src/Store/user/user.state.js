@@ -6,5 +6,6 @@ export const users = {
         { name: "mahdie", family: "ahmadi", age: 25, size: 170, birthday: 1375, city: "tehran", id: 4 },
         { name: "mahdie", family: "dolatjavid", age: 27, size: 160, birthday: 1373, city: "tehran", id: 5 },
     ],
-    editValues: null
+    editValues: null,
+    searchResult: [],
 }
