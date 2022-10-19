@@ -2,6 +2,7 @@ import { Table } from 'antd';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as userActions from '../../Store/user/user.action';
+import { Button } from '../Button';
 function ShowUser() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
@@ -15,13 +16,13 @@ function ShowUser() {
         <>
           {record.id === editData?.id ?
             <div className='btn-group'>
-              <button className='btn btn-success btn-sm' onClick={() => dispatch(userActions.edit(usersData.find((item) => item.id === record.id)))}>لغو</button>
-              <button className='btn btn-info btn-sm' onClick={() => dispatch(userActions.deleteUser(record.id))}>ذخیره</button>
+              <Button className='success'>لغو</Button>
+              <Button className='info'>ذخیره</Button>
             </div>
             :
             <div className='btn-group'>
-              <button className='btn btn-danger btn-sm' onClick={() => dispatch(userActions.deleteUser(record.id))}>حذف</button>
-              <button className='btn btn-warning btn-sm' onClick={() => dispatch(userActions.edit(usersData.find((item) => item.id === record.id)))}>ویرایش</button>
+              <Button className='danger' onClick={() => dispatch(userActions.deleteUser(record.id))}>حذف</Button>
+              <Button className='warning' onClick={() => dispatch(userActions.edit(usersData.find((item) => item.id === record.id)))}>ویرایش</Button>
             </div>
           }
         </>
