@@ -11,8 +11,12 @@ export function userReducer(state = users, action) {
         case EDIT:
             return { ...state, editValues: action.payload }
         case SAVE:
-            console.log(state);
-            return {}
+           {
+                const indexEdited=state.users.findIndex((item)=>item.id===action.payload.id);
+                const newUsers=[...state.users];
+                newUsers[indexEdited]=action.payload;
+               return {...state,users:newUsers,editValues:null}
+           }
         default:
             return state;
     }

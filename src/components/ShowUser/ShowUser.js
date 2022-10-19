@@ -7,36 +7,40 @@ function ShowUser() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
   const editData = useSelector((state) => state.user.editValues);
-  console.log(editData);
-  const [editValue, setEditValue] = useState({
-    name: "",
-    family: "",
-    age: 0,
-    size: 0,
-    birthday: 0,
-    city: "",
-  });
+  const initial= { name: "", family: "", age:"", size:"", birthday: "", city: "" }
+  const [editValue, setEditValue] = useState(initial);
+  console.log(editValue);
   function handleChange(obj) {
     setEditValue((prev) => {
       return { ...prev, ...obj }
     })
   }
   console.log(editValue);
+  function handleEdit(record) {
+    const newEdit=usersData.find((item)=>item.id===record.id);
+    dispatch(userActions.edit(newEdit));
+    setEditValue(newEdit)
+
+  }
+  function handleSave() {
+    dispatch(userActions.save(editValue))
+    setEditValue(initial)
+  }
   const columns = [
     {
       title: 'عملیات',
       key: 'action',
       render: (_, record) => (
         <>
-          {record.id === editData?.id ?
+          {record.id === editValue?.id ?
             <div className='btn-group'>
               <Button className='success'>لغو</Button>
-              <Button className='info' onClick={() => dispatch(userActions.save(editValue))}>ذخیره</Button>
+              <Button className='info' onClick={() => handleSave()}>ذخیره</Button>
             </div>
             :
             <div className='btn-group'>
               <Button className='danger' onClick={() => dispatch(userActions.deleteUser(record.id))}>حذف</Button>
-              <Button className='warning' onClick={() => dispatch(userActions.edit(usersData.find((item) => item.id === record.id)))}>ویرایش</Button>
+              <Button className='warning' onClick={() =>handleEdit(record)}>ویرایش</Button>
             </div>
           }
         </>
@@ -47,7 +51,7 @@ function ShowUser() {
       dataIndex: 'city',
       key: 'city',
       render: (item, record) => {
-        return record.id === editData?.id ? <input defaultValue={editData.city} onChange={(e) => handleChange({ city: e.target.value })} /> : item
+        return record.id === editValue?.id ? <input defaultValue={editValue.city} onChange={(e) =>handleChange({ city: e.target.value })} /> : item
 
       }
     },
@@ -55,31 +59,31 @@ function ShowUser() {
       title: 'تارخ تولد',
       dataIndex: 'birthday',
       key: 'birthday',
-      render: (item, record) => editData?.id === record.id ? <input defaultValue={editData.birthday} onChange={(e) => handleChange({ birthday: e.target.value })} /> : item,
+      render: (item, record) => editValue?.id === record.id ? <input defaultValue={editValue.birthday} onChange={(e) => handleChange({ birthday: e.target.value })} /> : item,
     },
     {
       title: 'قد',
       dataIndex: 'size',
       key: 'size',
-      render: (item, record) => editData?.id === record.id ? <input defaultValue={editData.size} onChange={(e) => handleChange({ size: e.target.value })} /> : item,
+      render: (item, record) => editValue?.id === record.id ? <input defaultValue={editValue.size} onChange={(e) => handleChange({ size: e.target.value })} /> : item,
     },
     {
       title: 'سن',
       dataIndex: 'age',
       key: 'age',
-      render: (item, record) => editData?.id === record.id ? <input defaultValue={editData.age} onChange={(e) => handleChange({ age: e.target.value })} /> : item,
+      render: (item, record) => editValue?.id === record.id ? <input defaultValue={editValue.age} onChange={(e) => handleChange({ age: e.target.value })} /> : item,
     },
     {
       title: 'نام خانوادگی',
       dataIndex: 'family',
       key: 'family',
-      render: (item, record) => editData?.id === record.id ? <input defaultValue={editData.family} onChange={(e) => handleChange({ family: e.target.value })} /> : item,
+      render: (item, record) => editValue?.id === record.id ? <input defaultValue={editValue.family} onChange={(e) => handleChange({ family: e.target.value })} /> : item,
     },
     {
       title: 'نام',
       dataIndex: 'name',
       key: 'name',
-      render: (item, record) => editData?.id === record.id ? <input defaultValue={editData.name} onChange={(e) => handleChange({ name: e.target.value })} /> : item,
+      render: (item, record) => editValue?.id === record.id ? <input defaultValue={editValue.name} onChange={(e) => handleChange({ name: e.target.value })} /> : item,
     },
   ];
 
