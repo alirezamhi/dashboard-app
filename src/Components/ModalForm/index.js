@@ -14,6 +14,7 @@ export function ModalForm() {
         size: 0,
         birthday: 0,
         city: "",
+        
     })
     function handleChange(obj) {
         setInputValue((prev) => {

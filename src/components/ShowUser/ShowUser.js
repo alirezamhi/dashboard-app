@@ -7,13 +7,21 @@ function ShowUser() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
   const editData = useSelector((state) => state.user.editValues);
-  const [editValue, setEditValue] = useState(editData);
-  console.log(editValue);
+  console.log(editData);
+  const [editValue, setEditValue] = useState({
+    name: "",
+    family: "",
+    age: 0,
+    size: 0,
+    birthday: 0,
+    city: "",
+  });
   function handleChange(obj) {
     setEditValue((prev) => {
       return { ...prev, ...obj }
     })
   }
+  console.log(editValue);
   const columns = [
     {
       title: 'عملیات',

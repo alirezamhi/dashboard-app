@@ -12,7 +12,7 @@ export function userReducer(state = users, action) {
             return { ...state, editValues: action.payload }
         case SAVE:
             console.log(state);
-            return { ...state, users: [...state.users, action.payload] }
+            return {}
         default:
             return state;
     }
