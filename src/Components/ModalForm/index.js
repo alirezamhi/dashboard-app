@@ -39,7 +39,7 @@ export function ModalForm() {
                         },
                     ]}
                 >
-                    <input type="text" className="form-control" placeholder="Username"/>
+                    <input type="text" className="form-control" placeholder="Username" onChange={e => handleChange({ name: e.target.value })} />
                 </Form.Item>
                 <Form.Item
                     label="نام خانوادگی :"

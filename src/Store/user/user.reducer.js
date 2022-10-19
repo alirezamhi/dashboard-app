@@ -1,4 +1,4 @@
-import { ADD, DELETE, EDIT } from "./user.constant";
+import { ADD, DELETE, EDIT, SAVE } from "./user.constant";
 import { users } from "./user.state";
 
 
@@ -10,6 +10,9 @@ export function userReducer(state = users, action) {
             return { ...state, users: state.users.filter(item => item.id !== action.payload) }
         case EDIT:
             return { ...state, editValues: action.payload }
+        case SAVE:
+            console.log(state);
+            return { ...state, users: [...state.users, action.payload] }
         default:
             return state;
     }
