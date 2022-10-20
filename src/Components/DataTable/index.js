@@ -1,34 +1,36 @@
 import { Table } from 'antd';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as userActions from '../../Store/user/user.action';
+import * as userActions from '../../store/user/user.action';
 import { Button } from '../Button';
-function ShowUser() {
+
+export function DataTable() {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
-  const search = useSelector(state=>state.user.searchResult)
-  console.log(search,"search");
+  const search = useSelector(state => state.user.searchResult)
   const initial = { name: "", family: "", age: "", size: "", birthday: "", city: "" }
   const [editValue, setEditValue] = useState(initial);
-  function handleChange(obj) {
+
+  const handleChange = (obj) => {
     setEditValue((prev) => {
       return { ...prev, ...obj }
     })
   }
-  function handleEdit(record) {
+  const handleEdit = (record) => {
     const newEdit = usersData.find((item) => item.id === record.id);
     dispatch(userActions.edit(newEdit));
     setEditValue(newEdit)
-
   }
-  function handleSave() {
+  const handleSave = () => {
     dispatch(userActions.save(editValue))
     setEditValue(initial)
   }
-  function handleCancel() {
+  const handleCancel = () => {
     dispatch(userActions.cancel())
     setEditValue(null)
   }
+
+
   const columns = [
     {
       title: 'عملیات',
@@ -37,7 +39,7 @@ function ShowUser() {
         <>
           {record.id === editValue?.id ?
             <div className='btn-group'>
-              <Button className='success' onClick={()=>handleCancel()}>لغو</Button>
+              <Button className='success' onClick={() => handleCancel()}>لغو</Button>
               <Button className='info' onClick={() => handleSave()}>ذخیره</Button>
             </div>
             :
@@ -90,7 +92,6 @@ function ShowUser() {
     },
   ];
 
-  return <Table columns={columns} dataSource={search.length===0?usersData:search} rowKey={(item) => item.id} />
+  return <Table columns={columns} dataSource={search.length === 0 ? usersData : search} rowKey={(item) => item.id} />
 };
 
-export default ShowUser;

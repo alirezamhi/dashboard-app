@@ -1,8 +1,8 @@
-import React, { createContext } from "react";
-import { useTheme } from "../../Hooks/useTheme";
-import Style from "./Header.module.css"
+import React from "react";
+import { useTheme } from "../../../../hooks/useTheme";
+import Style from "../../../Header/Header.module.css"
 
-export default function HeadrThem() {
+export function Theme() {
     const [theme, toggle] = useTheme();
     console.log(theme);
     return (

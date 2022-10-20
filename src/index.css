@@ -1,14 +1,13 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
 @font-face {
-  font-family: 'Yekan';
-  src:	
-      url('/src/fonts/Yekan.woff2') format('woff2'), 
-      url('/src/fonts/Yekan.woff') format('woff'),
-      url('/src/fonts/Yekan.otf') format('opentype'), 
-      url('/src/fonts/Yekan.ttf') format('truetype'); 
+  font-family: "Yekan";
+  src: url("/src/fonts/Yekan.woff2") format("woff2"),
+    url("/src/fonts/Yekan.woff") format("woff"),
+    url("/src/fonts/Yekan.otf") format("opentype"),
+    url("/src/fonts/Yekan.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   text-rendering: optimizeLegibility;
@@ -16,33 +15,35 @@
 }
 body {
   margin: 0;
-  font-family :"Yekan" !important ;
+  font-family: "Yekan" !important ;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.ant-modal-footer {
-  display: none;
-}
-.ant-pagination{
+.ant-pagination {
   display: none !important;
 }
-.ant-table-tbody{
+.ant-table-tbody {
   text-align: center;
 }
-.ant-table-cell{
+.ant-table-cell {
   text-align: center !important;
 }
-body{ 
+body {
   transition: all 0.2s ease-in;
-
 }
 [data-theme="dark"] {
   color: #fff;
-  background-color: #282c34
+  background-color: #282c34;
 }
 [data-theme="light"] {
   background-color: #f0eded;
+}
+.ant-modal-title {
+  text-align: center;
+}
+.ant-modal-content {
+  direction: rtl;
 }

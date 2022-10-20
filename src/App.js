@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Header from './Components/header/Header';
-import Loading from './Components/Loading/Loading';
-import ShowUser from './Components/ShowUser/ShowUser';
+import { Header } from './components/Header';
+import { Loading } from './components/Loading';
+import { DataTable } from './components/DataTable';
 
 function App() {
   const [istrue, setIsTrue] = useState(false)
@@ -14,7 +14,7 @@ function App() {
     <div>
       <Header></Header>
       <hr />
-      {istrue ? <ShowUser /> : <Loading />}
+      {istrue ? <DataTable /> : <Loading />}
     </div>
   );
 }

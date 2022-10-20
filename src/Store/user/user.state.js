@@ -1,10 +1,10 @@
 export const users = {
     users: [
-        { name: "alireza", family: "mohammadkhani", age: 22, size: 170, birthday: 1379, city: "tehran", id: 1 },
-        { name: "nima", family: "tajik", age: 18, size: 190, birthday: 1383, city: "reyOshakhlari", id: 2 },
-        { name: "sajad", family: "hashemi", age: 20, size: 180, birthday: 1380, city: "fallah", id: 3 },
-        { name: "mahdie", family: "ahmadi", age: 25, size: 170, birthday: 1375, city: "tehran", id: 4 },
-        { name: "mahdie", family: "dolatjavid", age: 27, size: 160, birthday: 1373, city: "tehran", id: 5 },
+        { name: "علیرضا", family: "محمدخانی", age: "۲۲", size: "۱۷۰", birthday: "2000-10-25", city: "تهران", id: 1 },
+        { name: "نیما", family: "تاجیک", age: "۱۸", size: "۱۸۰", birthday: "2004-10-25", city: "تهران", id: 2 },
+        { name: "سجاد", family: "هاشمی", age: "۲۰", size: "۱۸۰", birthday: "2002-10-25", city: "تهران", id: 3 },
+        { name: "مهدیه", family: "احمدی", age: "۲۵", size: "۱۷۰", birthday: "1997-10-25", city: "تهران", id: 4 },
+        { name: "مهدیه", family: "دولت جاوید", age: "۲۷", size: "۱۶۰", birthday: "1995-10-25", city: "تهران", id: 5 },
     ],
     editValues: null,
     searchResult: [],
