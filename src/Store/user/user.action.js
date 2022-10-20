@@ -1,4 +1,5 @@
-import { ADD, DELETE, EDIT, SAVE , CANCEL} from "./user.constant";
+
+import { ADD, DELETE, EDIT, SAVE , CANCEL , SEARCH} from "./user.constant";
 
 
 export function add(value) {
@@ -32,5 +33,13 @@ export function save(value) {
 export function cancel() {
     return{
         type: CANCEL,
+
+    }
+}
+
+export function search(value) {
+    return {
+        type: SEARCH,
+        payload: value,
     }
 }
