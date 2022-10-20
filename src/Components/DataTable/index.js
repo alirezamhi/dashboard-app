@@ -1,4 +1,5 @@
-import { Table } from 'antd';
+import { Table, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as userActions from '../../store/user/user.action';
@@ -10,6 +11,7 @@ export function DataTable() {
   const search = useSelector(state => state.user.searchResult)
   const initial = { name: "", family: "", age: "", size: "", birthday: "", city: "" }
   const [editValue, setEditValue] = useState(initial);
+  const { confirm } = Modal;
 
   const handleChange = (obj) => {
     setEditValue((prev) => {
@@ -44,7 +46,18 @@ export function DataTable() {
             </div>
             :
             <div className='btn-group'>
-              <Button className='danger' onClick={() => dispatch(userActions.deleteUser(record.id))}>حذف</Button>
+              <Button className='danger' onClick={() => {
+                confirm({
+                  title: 'از حذف این سطر مطمئن هستید؟',
+                  icon: <ExclamationCircleOutlined />,
+                  okText: 'بله',
+                  cancelText: 'خیر',
+                  okType: 'danger',
+                  onOk() {
+                    dispatch(userActions.deleteUser(record.id))
+                  },
+                });
+              }}>حذف</Button>
               <Button className='warning' onClick={() => handleEdit(record)}>ویرایش</Button>
             </div>
           }

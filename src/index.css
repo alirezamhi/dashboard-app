@@ -47,3 +47,10 @@ body {
 .ant-modal-content {
   direction: rtl;
 }
+.ant-modal-confirm-body > .anticon {
+  float: right !important;
+  margin-left: 16px !important;
+}
+.ant-modal-confirm .ant-modal-confirm-btns {
+  text-align: left !important;
+}

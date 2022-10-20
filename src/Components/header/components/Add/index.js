@@ -16,7 +16,6 @@ export const Add = () => {
     size: 0,
     birthday: 0,
     city: "",
-
   })
 
   const handleChange = (obj) => {
