@@ -25,6 +25,10 @@ function ShowUser() {
     dispatch(userActions.save(editValue))
     setEditValue(initial)
   }
+  function handleCancel() {
+    dispatch(userActions.cancel())
+    setEditValue(null)
+  }
   const columns = [
     {
       title: 'عملیات',
@@ -33,7 +37,7 @@ function ShowUser() {
         <>
           {record.id === editValue?.id ?
             <div className='btn-group'>
-              <Button className='success'>لغو</Button>
+              <Button className='success' onClick={()=>handleCancel()}>لغو</Button>
               <Button className='info' onClick={() => handleSave()}>ذخیره</Button>
             </div>
             :

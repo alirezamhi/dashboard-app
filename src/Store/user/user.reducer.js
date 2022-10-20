@@ -1,4 +1,4 @@
-import { ADD, DELETE, EDIT, SAVE } from "./user.constant";
+import { ADD, CANCEL, DELETE, EDIT, SAVE } from "./user.constant";
 import { users } from "./user.state";
 
 
@@ -17,6 +17,8 @@ export function userReducer(state = users, action) {
                 newUsers[indexEdited]=action.payload;
                return {...state,users:newUsers,editValues:null}
            }
+        case CANCEL :
+            return {...state,editValues:null}
         default:
             return state;
     }
